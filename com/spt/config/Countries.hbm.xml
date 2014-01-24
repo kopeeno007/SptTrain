@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="Countries" table="COUNTRIES">
+	  <id name="countryId" column="COUNTRY_ID" type="string">
+	  </id>
+    <!--<property name="regionId" column="REGION_ID" type="int"/>-->
+    <property name="countryName" column="COUNTRY_NAME" type="string"/>
+
+    <many-to-one name="regionId" class="Regions" column="REGION_ID" not-null="true"/>
+
+    <set name="locations" inverse="true" cascade="all,delete-orphan">
+    	<key column="COUNTRY_ID"/>
+    	<one-to-many class="Locations"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

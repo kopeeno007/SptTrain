@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="Employees" table="EMPLOYEES">
+	  <id name="employeesId" column="EMPLOYEE_ID" type="int">
+	  </id>
+    <property name="firstName" column="FIRST_NAME" type="string"/>
+    <property name="lastName" column="LAST_NAME" type="string"/>
+    <property name="email" column="EMAIL" type="string"/>
+    <property name="phoneNumber" column="PHONE_NUMBER" type="string"/>
+    <property name="hireDate" column="HIRE_DATE" type="date"/>
+    <!--<property name="jobId" column="JOB_ID" type="string"/>-->
+    <property name="salary" column="SALARY" type="int"/>
+    <property name="commisstionPct" column="COMMISSION_PCT" type="int"/>
+    <property name="managerId" column="MANAGER_ID" type="int"/>
+    <!--<property name="departMentsId" column="DEPARTMENT_ID" type="int"/>-->
+
+    <many-to-one name="departMentsId" class="DepartMents" column="DEPARTMENT_ID" cascade="all" not-null="true"/>
+    <many-to-one name="jobId" class="Jobs" column="JOB_ID" cascade="all" not-null="true"/>
+
+    <set name="project" table="PROJECT_EMPLOYEE" inverse="false" lazy="true" fetch="select" cascade="all" >
+      <key>
+        <column name="EMPLOYEE_ID" not-null="true" />
+      </key>
+      <many-to-many entity-name="com.spt.training.domain.Project">
+        <column name="PROJECT_ID" not-null="true" />
+      </many-to-many>
+    </set>
+
+    <set name="jobhistory" inverse="true" cascade="all,delete-orphan">
+      <key column="EMPLOYEE_ID"/>
+      <one-to-many class="Jobhistory"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

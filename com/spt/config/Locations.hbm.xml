@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="Locations" table="LOCATIONS">
+	  <id name="locationId" column="LOCATION_ID" type="int">
+	  </id>
+    <property name="streetAddress" column="STREET_ADDRESS" type="string"/>
+    <property name="postalCode" column="POSTAL_CODE" type="string"/>
+    <property name="city" column="CITY" type="string"/>
+    <property name="stateProvince" column="STATE_PROVINCE" type="string"/>
+    <!--<property name="countryId" column="COUNTRY_ID" type="string"/>-->
+
+    <many-to-one name="countryId" class="Countries" column="COUNTRY_ID" not-null="true"/>
+    
+    <set name="departMents" inverse="true" cascade="all,delete-orphan">
+    	<key column="LOCATION_ID"/>
+    	<one-to-many class="DepartMents"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

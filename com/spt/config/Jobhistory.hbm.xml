@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="Jobhistory" table="JOB_HISTORY">
+	 <!-- <id name="employeeId" column="EMPLOYEE_ID" type="int">
+	  </id>-->
+
+	<composite-id>
+		<!--<key-property name="employeeId" column="EMPLOYEE_ID"  type="int"/>-->
+		<key-property name="startDate" column="START_DATE" type="date"/>
+	</composite-id>
+
+    <!--<property name="startDate" column="START_DATE" type="date"/>-->
+    <property name="endDate" column="END_DATE" type="date"/>
+    <!--<property name="jobId" column="JOB_ID" type="string"/>-->
+    <property name="departmentId" column="DEPARTMENT_ID" type="int"/>
+
+    <many-to-one name="jobId" class="Jobs" column="JOB_ID" cascade="all" not-null="true"/>
+    <many-to-one name="employeeId" class="Employees" column="EMPLOYEE_ID" cascade="all" not-null="true"/>
+
+  </class>
+</hibernate-mapping>

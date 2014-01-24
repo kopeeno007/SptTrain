@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="DepartMents" table="DEPARTMENTS">
+	  <id name="departMentsId" column="DEPARTMENT_ID" type="int">
+	  </id>
+    <property name="departMentsName" column="DEPARTMENT_NAME" type="string"/>
+    <property name="managerId" column="MANAGER_ID" type="int"/>
+    <!--<property name="locationId" column="LOCATION_ID" type="int"/>-->
+
+    <many-to-one name="locationId" class="Locations" column="LOCATION_ID" cascade="all" not-null="true"/>
+
+    <set name="employees" inverse="true" cascade="all,delete-orphan">
+    	<key column="DEPARTMENT_ID"/>
+    	<one-to-many class="Employees"/>
+    </set>
+
+     <set name="jobhistory" inverse="true" cascade="all,delete-orphan">
+        <key column="DEPARTMENT_ID"/>
+        <one-to-many class="Jobhistory"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

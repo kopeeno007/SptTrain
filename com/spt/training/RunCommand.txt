@@ -1,0 +1,7 @@
+
+java -cp .:com/Hibernate_Lib/Lib/antlr-2.7.6.jar:com/Hibernate_Lib/Lib/cglib-2.2.jar:com/Hibernate_Lib/Lib/commons-collections-3.1.jar:com/Hibernate_Lib/Lib/derbyclient.jar:com/Hibernate_Lib/Lib/derby.jar:com/Hibernate_Lib/Lib/derbynet.jar:com/Hibernate_Lib/Lib/derbyrun.jar:com/Hibernate_Lib/Lib/derbytools.jar:com/Hibernate_Lib/Lib/dom4j-1.6.1.jar:com/Hibernate_Lib/Lib/hibernate3.jar:com/Hibernate_Lib/Lib/hibernate-jpa-2.0-api-1.0.1.Final.jar:com/Hibernate_Lib/Lib/jta-1.1.jar:com/Hibernate_Lib/Lib/log4j-1.2.17.jar:com/Hibernate_Lib/Lib/slf4j-api-1.7.2.jar:com/Hibernate_Lib/Lib/slf4j-log4j12-1.7.2.jar:com/Hibernate_Lib/Lib/javassist-3.12.0.GA.jar:com/spt/config/ com.spt.training.HibernateTrain
+
+
+
+
+javac -cp .:com/Hibernate_Lib/Lib/antlr-2.7.6.jar:com/Hibernate_Lib/Lib/cglib-2.2.jar:com/Hibernate_Lib/Lib/commons-collections-3.1.jar:com/Hibernate_Lib/Lib/derbyclient.jar:com/Hibernate_Lib/Lib/derby.jar:com/Hibernate_Lib/Lib/derbynet.jar:com/Hibernate_Lib/Lib/derbyrun.jar:com/Hibernate_Lib/Lib/derbytools.jar:com/Hibernate_Lib/Lib/dom4j-1.6.1.jar:com/Hibernate_Lib/Lib/hibernate3.jar:com/Hibernate_Lib/Lib/hibernate-jpa-2.0-api-1.0.1.Final.jar:com/Hibernate_Lib/Lib/jta-1.1.jar:com/Hibernate_Lib/Lib/log4j-1.2.17.jar:com/Hibernate_Lib/Lib/slf4j-api-1.7.2.jar:com/Hibernate_Lib/Lib/slf4j-log4j12-1.7.2.jar:com/Hibernate_Lib/Lib/javassist-3.12.0.GA.jar:com/spt/config/ com/spt/training/Main.java

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spt.training.domain">
+  <class name="Jobs" table="JOBS">
+	  <id name="jobId" column="JOB_ID" type="string">
+	  </id>
+    <property name="jobTitle" column="JOB_TITLE" type="string"/>
+    <property name="minSalary" column="MIN_SALARY" type="int"/>
+    <property name="maxSalary" column="MAX_SALARY" type="int"/>
+
+    <set name="jobhistory" inverse="true" cascade="all,delete-orphan">
+      <key column="JOB_ID"/>
+      <one-to-many class="Jobhistory"/>
+    </set>
+    
+    <set name="employees" inverse="true" cascade="all,delete-orphan">
+      <key column="JOB_ID"/>
+      <one-to-many class="Employees"/>
+    </set>
+
+  </class>
+
+</hibernate-mapping>
